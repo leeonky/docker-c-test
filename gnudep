@@ -1,0 +1,14 @@
+#! /bin/bash
+
+repo=$1
+temp_src=/tmp/test/
+
+rm -rf $temp_src
+mkdir -p $temp_src
+pushd $temp_src > /dev/null
+
+git clone $repo . && autoreconf -i && ./configure && make && make install
+
+popd > /dev/null
+
+rm -rf $temp_src
