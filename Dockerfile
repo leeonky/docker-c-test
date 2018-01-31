@@ -1,5 +1,6 @@
-FROM leeonky/os-dev
+FROM leeonky/os-dev:ubuntu
 
-RUN sudo yum install -y CUnit-devel && sudo yum clean all
+RUN sudo apt-get update && sudo apt-get install -y libcunit1-dev
 
 ADD runtest /usr/local/bin/
+
